@@ -80,7 +80,7 @@
         "role": "Solo - api, web, mobile, admin",
         "lede": "A modular life tracker: money, food, sport, goals, health. You connect only the modules you need and the app, its menu and its assistant context assemble around them. Multi-currency is built on rates the user sets and the period freezes, never a market rate substituted behind their back.",
         "figures": [
-          { "value": "~93 000", "label": "lines of handwritten code" },
+          { "value": "~93 000", "label": "lines of code" },
           { "value": "238 / 60", "label": "endpoints / data models" },
           { "value": "945", "label": "commits in 10 months" }
         ]
@@ -233,7 +233,7 @@
         "lede": "A personal life tracker: money, food, sport, goals and health in one place. The product mechanic is modules - you connect only the sections you need, and the app assembles around them, menu and assistant context included. On top of that sits light gamification: a pixel-art frog called Pilar, a pond that grows with every connected module, streaks, levels and XP.",
         "differentiator": "A monorepo of four applications sharing one API, plus a pixel-art UI kit of my own, pixkit, published to npm from CI and used by both the React and the React Native clients.",
         "stats": [
-          { "value": "~93 000", "label": "Lines of handwritten TS / Vue", "note": "Excludes ~73 000 lines of vendored API clients" },
+          { "value": "~93 000", "label": "Lines of TS / Vue", "note": "Excludes ~73 000 lines of vendored API clients" },
           { "value": "238 / 31", "label": "Endpoints / controllers", "note": "NestJS, documented with Swagger" },
           { "value": "60 / 52", "label": "Prisma models / migrations", "note": "PostgreSQL" },
           { "value": "945", "label": "Commits, Nov 2025 to Sep 2026", "note": "Roughly ten months of evenings" }
@@ -342,7 +342,7 @@
         "role": "Соло - api, веб, мобильное, админка",
         "lede": "Модульный трекер жизни: финансы, питание, спорт, цели, здоровье. Пользователь подключает только нужные разделы, и приложение вместе с меню и контекстом ассистента собирается под него. Мультивалютность построена на курсах, которые задаёт пользователь и замораживает бюджетный период.",
         "figures": [
-          { "value": "~93 000", "label": "строк рукописного кода" },
+          { "value": "~93 000", "label": "строк кода" },
           { "value": "238 / 60", "label": "эндпоинтов / моделей" },
           { "value": "945", "label": "коммитов за 10 месяцев" }
         ]
@@ -495,7 +495,7 @@
         "lede": "Персональное приложение для отслеживания жизни: финансы, питание, спорт, цели и здоровье в одном месте. Ключевая продуктовая механика - модули: пользователь подключает только нужные разделы, и приложение вместе с меню, заданиями и контекстом ассистента собирается под него. Поверх - лёгкая геймификация: пиксельный маскот-лягушка Pilar, пруд, который растёт с каждым подключённым модулем, серии, уровни и XP.",
         "differentiator": "Монорепозиторий из четырёх приложений на одном API плюс собственный пиксельный UI-кит pixkit, который публикуется в npm из CI и используется и React-, и React Native-клиентом.",
         "stats": [
-          { "value": "~93 000", "label": "Строк рукописного TS / Vue", "note": "Без ~73 000 строк вендоренных API-клиентов" },
+          { "value": "~93 000", "label": "Строк TS / Vue", "note": "Без ~73 000 строк вендоренных API-клиентов" },
           { "value": "238 / 31", "label": "Эндпоинтов / контроллеров", "note": "NestJS, документация в Swagger" },
           { "value": "60 / 52", "label": "Моделей Prisma / миграций", "note": "PostgreSQL" },
           { "value": "945", "label": "Коммитов, ноя 2025 - сен 2026", "note": "Около десяти месяцев вечеров" }

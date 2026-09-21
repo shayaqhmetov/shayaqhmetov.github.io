@@ -27,8 +27,8 @@ fails if the committed HTML is stale, and publishes everything except `src/` and
 repo's own files to the `gh-pages` branch. GitHub Pages serves that branch at
 <https://shayaqhmetov.github.io>. Nothing in Settings needs to change.
 
-The workflow needs one secret: `GH_PAT`, a token with `contents: write` on this
-repository.
+The workflow pushes with the built-in `GITHUB_TOKEN` (it declares `contents: write`), so
+no personal token or extra secret is needed.
 
 `.nojekyll` is present, so GitHub serves the files as they are instead of running Jekyll.
 

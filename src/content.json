@@ -50,7 +50,7 @@
     },
     "hero": {
       "role": "Senior Backend Engineer - Node.js - TypeScript - AWS",
-      "location": "Bangkok, Thailand (UTC+7) - Kazakhstan citizen - available remotely as a B2B contractor",
+      "location": "Bangkok, Thailand (UTC+7) - remote, EU afternoon / APAC overlap - available as a B2B contractor",
       "lede": "Backend engineer, nine years in. Since 2019 I have owned the 95 Node.js services behind a clinical-trial data platform: ingestion, validation and transformation of the study data that pharmaceutical sponsors file with regulators, over datasets up to 100 GB per file. In parallel I architected a real-time collaborative editing platform from scratch and lead the team of three building it."
     },
     "stats": [
@@ -101,7 +101,7 @@
           "Consolidated 95 repositories into a monorepo with shared packages as a single source of truth, cutting delivery-management work from two weeks to one or two days.",
           "Built CI/CD across all 95 repositories: PR validation, automated versioning, artifact publishing.",
           "Drove a dependency remediation across all 95 repositories, eliminating 77 critical and 1 331 high severity vulnerabilities to reach zero outstanding critical or high findings.",
-          "Acting technical lead for a team of 6 when covering for the team lead; 5 to 10 PR reviews a week and 6 hires onboarded.",
+          "Acting technical lead for a team of 6; 5 to 10 PR reviews a week and 6 hires onboarded.",
           "Unified testing across services with a shared mock package and migrated the suite to Jest, raising coverage from under 10% to over 70%."
         ],
         "stack": ["Node.js", "TypeScript", "AWS Lambda", "SQS", "S3", "API Gateway", "PostgreSQL", "Redis", "SonarQube", "Docker"]
@@ -112,11 +112,11 @@
         "org": "Almaty Kitap",
         "context": "Concurrent with AWWCOR. A collaborative textbook authoring and layout editor - a Figma-like canvas - for in-house editorial teams.",
         "points": [
-          "Designed the entire system architecture from scratch: document model, CRDT-based real-time collaboration and conflict resolution on Automerge, canvas rendering, versioning and storage. I own every technical decision on the project.",
+          "Designed the entire system architecture from scratch: document model, CRDT-based real-time collaboration and conflict resolution on Automerge, canvas rendering, versioning, storage and Keycloak SSO authentication. I own every technical decision on the project.",
           "Lead a team of 3 - two engineers and a QA: scope definition, task breakdown, code review, release planning.",
           "Took the product from zero to a working system, now in internal testing ahead of rollout to the in-house editorial teams."
         ],
-        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)"]
+        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)", "Keycloak"]
       },
       {
         "period": "Oct 2018 - Jul 2019",
@@ -124,7 +124,8 @@
         "org": "Lamoda",
         "context": "",
         "points": [
-          "Designed and built a fulfilment service giving local partners real-time stock management in place of a manual process, taken to pre-production and validated with a live footwear manufacturer."
+          "Designed and built a fulfilment service giving local partners real-time stock management in place of a manual process, taken to pre-production and validated with a live footwear manufacturer.",
+          "Set up SAML single sign-on for the service."
         ],
         "stack": []
       },
@@ -152,7 +153,8 @@
     "skillsSection": { "eyebrow": "Skills", "title": "What I work with", "lede": "" },
     "skills": [
       { "name": "Languages", "items": ["TypeScript", "JavaScript", "Python", "SQL"] },
-      { "name": "Backend", "items": ["Node.js", "NestJS", "Express", "REST API design", "Event-driven architecture", "Microservices", "Serverless"] },
+      { "name": "Backend", "items": ["Node.js", "NestJS", "Express", "REST API design", "GraphQL (API integration)", "Event-driven architecture", "Microservices", "Serverless"] },
+      { "name": "Auth", "items": ["SSO (Keycloak, SAML)", "OAuth 2.0 / OIDC", "Role-based access control"] },
       { "name": "Cloud & infra", "items": ["AWS Lambda", "SQS", "S3", "API Gateway", "CloudWatch", "Docker", "CI/CD", "Linux"] },
       { "name": "Data", "items": ["PostgreSQL", "MongoDB", "Redis"] },
       { "name": "Practices", "items": ["System design", "Observability and incident response", "Quality gates (SonarQube)", "Unit and integration testing", "Code review", "Mentoring"] }
@@ -162,7 +164,7 @@
       "eyebrow": "Contact",
       "title": "Open to work",
       "lede": "Based in Bangkok (UTC+7), working remotely as a B2B contractor through a Kazakhstan sole proprietorship. Email is the fastest route.",
-      "availability": "Overlap with European hours is comfortable; with US Eastern, the morning half of the day."
+      "availability": "Working hours overlap with the European afternoon and with APAC."
     },
     "footer": "Built with a design system of its own. Static HTML on GitHub Pages, no tracking.",
     "pages": {
@@ -312,7 +314,7 @@
     },
     "hero": {
       "role": "Senior Backend Engineer - Node.js - TypeScript - AWS",
-      "location": "Бангкок, Таиланд (UTC+7) - гражданин Казахстана - удалённо, по B2B",
+      "location": "Бангкок, Таиланд (UTC+7) - удалённо, пересечение с Европой и APAC - по B2B",
       "lede": "Бэкенд-инженер, девять лет в профессии. С 2019 года владею 95 Node.js-сервисами платформы клинических исследований: приём, валидация и трансформация данных исследований, которые фармкомпании подают регуляторам, на датасетах до 100 ГБ в одном файле. Параллельно спроектировал с нуля платформу совместного редактирования в реальном времени и веду команду из трёх человек, которая её строит."
     },
     "stats": [
@@ -363,7 +365,7 @@
           "Свёл 95 репозиториев в монорепозиторий с общими пакетами как единым источником правды - работа по управлению поставкой сократилась с двух недель до одного-двух дней.",
           "Построил CI/CD по всем 95 репозиториям: валидация PR, автоматическое версионирование, публикация артефактов.",
           "Провёл ремедиацию зависимостей по всем 95 репозиториям: устранены 77 critical и 1 331 high, до нуля открытых находок.",
-          "Исполнял обязанности технического лида команды из 6 человек при подмене тимлида; 5-10 ревью PR в неделю, онбординг 6 новых инженеров.",
+          "Исполняю обязанности технического лида команды из 6 человек; 5-10 ревью PR в неделю, онбординг 6 новых инженеров.",
           "Унифицировал тестирование общим пакетом моков и перевёл набор на Jest, подняв покрытие с менее 10% до более 70%."
         ],
         "stack": ["Node.js", "TypeScript", "AWS Lambda", "SQS", "S3", "API Gateway", "PostgreSQL", "Redis", "SonarQube", "Docker"]
@@ -374,11 +376,11 @@
         "org": "Almaty Kitap",
         "context": "Параллельно с AWWCOR. Редактор совместного авторства и вёрстки учебников - канвас в духе Figma - для внутренних редакционных команд.",
         "points": [
-          "Спроектировал всю архитектуру с нуля: модель документа, совместное редактирование и разрешение конфликтов на CRDT (Automerge), рендеринг канваса, версионирование и хранение. Все технические решения на проекте - мои.",
+          "Спроектировал всю архитектуру с нуля: модель документа, совместное редактирование и разрешение конфликтов на CRDT (Automerge), рендеринг канваса, версионирование, хранение и SSO-аутентификацию на Keycloak. Все технические решения на проекте - мои.",
           "Веду команду из 3 человек (2 инженера, 1 QA): определение объёма работ, декомпозиция, ревью, планирование релизов.",
           "Довёл продукт от нуля до работающей системы; сейчас внутреннее тестирование перед выкаткой на редакции."
         ],
-        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)"]
+        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)", "Keycloak"]
       },
       {
         "period": "Окт 2018 - июл 2019",
@@ -386,7 +388,8 @@
         "org": "Lamoda",
         "context": "",
         "points": [
-          "Спроектировал и построил сервис фулфилмента, давший локальным партнёрам управление остатками в реальном времени вместо ручного процесса; доведён до preproduction и проверен с живым производителем обуви."
+          "Спроектировал и построил сервис фулфилмента, давший локальным партнёрам управление остатками в реальном времени вместо ручного процесса; доведён до preproduction и проверен с живым производителем обуви.",
+          "Настроил для сервиса single sign-on на SAML."
         ],
         "stack": []
       },
@@ -414,7 +417,8 @@
     "skillsSection": { "eyebrow": "Навыки", "title": "С чем работаю", "lede": "" },
     "skills": [
       { "name": "Языки", "items": ["TypeScript", "JavaScript", "Python", "SQL"] },
-      { "name": "Бэкенд", "items": ["Node.js", "NestJS", "Express", "Проектирование REST API", "Событийная архитектура", "Микросервисы", "Serverless"] },
+      { "name": "Бэкенд", "items": ["Node.js", "NestJS", "Express", "Проектирование REST API", "GraphQL (интеграция API)", "Событийная архитектура", "Микросервисы", "Serverless"] },
+      { "name": "Аутентификация", "items": ["SSO (Keycloak, SAML)", "OAuth 2.0 / OIDC", "Ролевой доступ (RBAC)"] },
       { "name": "Облако и инфраструктура", "items": ["AWS Lambda", "SQS", "S3", "API Gateway", "CloudWatch", "Docker", "CI/CD", "Linux"] },
       { "name": "Данные", "items": ["PostgreSQL", "MongoDB", "Redis"] },
       { "name": "Практики", "items": ["Системный дизайн", "Наблюдаемость и работа с инцидентами", "Quality gates (SonarQube)", "Юнит- и интеграционные тесты", "Code review", "Менторство"] }
@@ -424,7 +428,7 @@
       "eyebrow": "Контакты",
       "title": "Открыт к предложениям",
       "lede": "Бангкок (UTC+7), работаю удалённо по B2B через ИП в Казахстане. Быстрее всего - почтой.",
-      "availability": "С европейскими часами пересечение полное; с US Eastern - первая половина рабочего дня."
+      "availability": "Рабочие часы пересекаются со второй половиной дня в Европе и с APAC."
     },
     "footer": "Собран на собственной дизайн-системе. Статический HTML на GitHub Pages, без трекинга.",
     "pages": {

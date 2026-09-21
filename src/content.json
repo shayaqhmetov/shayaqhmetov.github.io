@@ -1,0 +1,549 @@
+{
+  "person": {
+    "name": "Ruslan Shayakhmetov",
+    "email": "shayakhmetov.ruslan@icloud.com",
+    "github": "https://github.com/shayaqhmetov",
+    "githubLabel": "github.com/shayaqhmetov",
+    "linkedin": "https://www.linkedin.com/in/shayakhmetov-ruslan/",
+    "linkedinLabel": "linkedin.com/in/shayakhmetov-ruslan",
+    "cv": "cv/Ruslan-Shayakhmetov-CV.pdf"
+  },
+  "projects": {
+    "99node": {
+      "slug": "99node",
+      "url": "https://99node.6baqa.com/",
+      "urlLabel": "99node.6baqa.com",
+      "stack": ["Next 15", "React 19", "PixiJS 8", "NestJS 10", "Prisma 5", "PostgreSQL 16", "Turborepo", "pnpm"]
+    },
+    "qurbaqa": {
+      "slug": "qurbaqa",
+      "url": "https://qurbaqa.6baqa.com/",
+      "urlLabel": "qurbaqa.6baqa.com",
+      "stack": ["NestJS 10", "Prisma 7", "PostgreSQL", "Redis", "BullMQ", "Vue 3.5", "React Native 0.81", "Expo SDK 54", "S3 / MinIO", "Docker", "Maestro"]
+    }
+  },
+
+  "en": {
+    "lang": "en",
+    "displayName": "Ruslan Shayakhmetov",
+    "dir": "",
+    "meta": {
+      "homeTitle": "Ruslan Shayakhmetov - Senior Backend Engineer",
+      "homeDescription": "Backend engineer, nine years in. Owner of 95 Node.js services behind a clinical-trial data platform. Node.js, TypeScript, AWS. Based in Bangkok, available as a B2B contractor.",
+      "otherLangLabel": "RU",
+      "otherLangName": "Русский"
+    },
+    "nav": { "work": "Work", "experience": "Experience", "skills": "Skills", "contact": "Contact", "back": "Back to the home page" },
+    "ui": {
+      "theme": "Theme",
+      "language": "Language",
+      "dark": "Dark",
+      "light": "Light",
+      "stack": "Stack",
+      "liveSite": "Open the live site",
+      "downloadCv": "Download CV",
+      "petProject": "Pet project",
+      "decisions": "Decisions worth asking about",
+      "whatToLook": "What to look at",
+      "scale": "Scale",
+      "skipToContent": "Skip to content"
+    },
+    "hero": {
+      "role": "Senior Backend Engineer - Node.js - TypeScript - AWS",
+      "location": "Bangkok, Thailand (UTC+7) - Kazakhstan citizen - available remotely as a B2B contractor",
+      "lede": "Backend engineer, nine years in. Since 2019 I have owned the 95 Node.js services behind a clinical-trial data platform: ingestion, validation and transformation of the study data that pharmaceutical sponsors file with regulators, over datasets up to 100 GB per file. In parallel I architected a real-time collaborative editing platform from scratch and lead the team of three building it."
+    },
+    "stats": [
+      { "value": "9", "label": "Years building backends", "note": "Since 2017, five of them on one platform" },
+      { "value": "95", "label": "Node.js services owned", "note": "One estate, one monorepo, one CI/CD" },
+      { "value": "1 408", "label": "Vulnerabilities eliminated", "note": "77 critical and 1 331 high, down to zero" },
+      { "value": "10% → 70%", "label": "Test coverage raised", "note": "Unified on Jest with a shared mock package", "measured": true }
+    ],
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Pet projects",
+      "lede": "Two products built end to end outside of work, both live. Each page below goes into the decisions behind them rather than the feature list."
+    },
+    "cards": {
+      "99node": {
+        "title": "99node",
+        "role": "Solo - full stack",
+        "lede": "A roadmap builder where depth is a drill-down into a node rather than an infinite canvas. Budgets and schedules are aggregated over the whole subtree on every read, so editing a leaf cannot leave a stale number on an ancestor. Published maps are served with SSR and no session.",
+        "figures": [
+          { "value": "~20 000", "label": "lines of TypeScript" },
+          { "value": "12 / 15", "label": "tables / migrations" },
+          { "value": "~10 ms", "label": "subtree rollup, 1 500 nodes" }
+        ]
+      },
+      "qurbaqa": {
+        "title": "Qurbaqa",
+        "role": "Solo - api, web, mobile, admin",
+        "lede": "A modular life tracker: money, food, sport, goals, health. You connect only the modules you need and the app, its menu and its assistant context assemble around them. Multi-currency is built on rates the user sets and the period freezes, never a market rate substituted behind their back.",
+        "figures": [
+          { "value": "~93 000", "label": "lines of handwritten code" },
+          { "value": "238 / 60", "label": "endpoints / data models" },
+          { "value": "945", "label": "commits in 10 months" }
+        ]
+      }
+    },
+    "experienceSection": { "eyebrow": "Experience", "title": "Nine years, five employers", "lede": "" },
+    "experience": [
+      {
+        "period": "Jul 2019 - now",
+        "title": "Senior Software Engineer",
+        "org": "AWWCOR, Inc",
+        "context": "Senior Software Engineer since 2023, Software Engineer before that. Global technology staffing firm; the end client is an enterprise clinical-trial technology company, withheld under NDA. The platform runs under GxP / 21 CFR Part 11: immutable audit trails, data lineage, role-based access control, a controlled Dev/Test/Prod release process.",
+        "points": [
+          "Own all 95 Node.js/TypeScript services in the team's estate: high-throughput ingestion, validation and transformation pipelines over datasets up to 100 GB per file.",
+          "Maintain backward compatibility across concurrent API versions so enterprise clients migrate on their own schedule.",
+          "Standardised service-to-service contracts across the platform with generated OpenAPI SDKs and typed event schemas, measurably reducing messages landing in dead-letter queues.",
+          "Led the migration of long-running processing jobs off AWS Lambda onto EC2 to remove the 15-minute execution ceiling, so jobs that used to fail on timeout now run to completion.",
+          "Consolidated 95 repositories into a monorepo with shared packages as a single source of truth, cutting delivery-management work from two weeks to one or two days.",
+          "Built CI/CD across all 95 repositories: PR validation, automated versioning, artifact publishing.",
+          "Drove a dependency remediation across all 95 repositories, eliminating 77 critical and 1 331 high severity vulnerabilities to reach zero outstanding critical or high findings.",
+          "Acting technical lead for a team of 6 when covering for the team lead; 5 to 10 PR reviews a week and 6 hires onboarded.",
+          "Unified testing across services with a shared mock package and migrated the suite to Jest, raising coverage from under 10% to over 70%."
+        ],
+        "stack": ["Node.js", "TypeScript", "AWS Lambda", "SQS", "S3", "API Gateway", "PostgreSQL", "Redis", "SonarQube", "Docker"]
+      },
+      {
+        "period": "Dec 2023 - now",
+        "title": "Senior Software Engineer / Project Lead (part-time)",
+        "org": "Almaty Kitap",
+        "context": "Concurrent with AWWCOR. A collaborative textbook authoring and layout editor - a Figma-like canvas - for in-house editorial teams.",
+        "points": [
+          "Designed the entire system architecture from scratch: document model, CRDT-based real-time collaboration and conflict resolution on Automerge, canvas rendering, versioning and storage. I own every technical decision on the project.",
+          "Lead a team of 3 - two engineers and a QA: scope definition, task breakdown, code review, release planning.",
+          "Took the product from zero to a working system, now in internal testing ahead of rollout to the in-house editorial teams."
+        ],
+        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)"]
+      },
+      {
+        "period": "Oct 2018 - Jul 2019",
+        "title": "Software Engineer",
+        "org": "Lamoda",
+        "context": "",
+        "points": [
+          "Designed and built a fulfilment service giving local partners real-time stock management in place of a manual process, taken to pre-production and validated with a live footwear manufacturer."
+        ],
+        "stack": []
+      },
+      {
+        "period": "Jul 2018 - Sep 2018",
+        "title": "Full-stack Developer",
+        "org": "KulanOil",
+        "context": "",
+        "points": [
+          "Delivered the first version of an internal document-flow service, replacing paper approvals with a tracked digital workflow."
+        ],
+        "stack": []
+      },
+      {
+        "period": "Sep 2017 - Jul 2018",
+        "title": "Junior Full-stack Developer",
+        "org": "Transavia LLC",
+        "context": "",
+        "points": [
+          "Built the backend of a hotel reservation service, integrating the Amadeus GDS over XML/SOAP into an async booking pipeline."
+        ],
+        "stack": []
+      }
+    ],
+    "skillsSection": { "eyebrow": "Skills", "title": "What I work with", "lede": "" },
+    "skills": [
+      { "name": "Languages", "items": ["TypeScript", "JavaScript", "Python", "SQL"] },
+      { "name": "Backend", "items": ["Node.js", "NestJS", "Express", "REST API design", "Event-driven architecture", "Microservices", "Serverless"] },
+      { "name": "Cloud & infra", "items": ["AWS Lambda", "SQS", "S3", "API Gateway", "CloudWatch", "Docker", "CI/CD", "Linux"] },
+      { "name": "Data", "items": ["PostgreSQL", "MongoDB", "Redis"] },
+      { "name": "Practices", "items": ["System design", "Observability and incident response", "Quality gates (SonarQube)", "Unit and integration testing", "Code review", "Mentoring"] }
+    ],
+    "education": { "eyebrow": "Education", "title": "B.Sc. Computer Science", "line": "SDU University, 2018. Best Diploma Project award." },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Open to work",
+      "lede": "Based in Bangkok (UTC+7), working remotely as a B2B contractor through a Kazakhstan sole proprietorship. Email is the fastest route.",
+      "availability": "Overlap with European hours is comfortable; with US Eastern, the morning half of the day."
+    },
+    "footer": "Built with a design system of its own. Static HTML on GitHub Pages, no tracking.",
+    "pages": {
+      "99node": {
+        "title": "99node",
+        "role": "Solo - full stack",
+        "lede": "A roadmap builder. You lay out a map for a topic - \"Python Programmer\", \"A holiday in Thailand\" - then drill into any step and build a sub-roadmap inside it, to any depth. A map can be published to a catalogue, where it becomes a read-only page anyone can read without an account.",
+        "differentiator": "What separates it from a mind map is depth rather than canvas size. There is no single infinite sheet: every node is a plane of its own with local coordinates.",
+        "stats": [
+          { "value": "~20 000", "label": "Lines of TypeScript", "note": "web 12.9k, api 5.5k, shared 1.7k" },
+          { "value": "12 / 15", "label": "Tables / migrations", "note": "PostgreSQL 16" },
+          { "value": "~7 ms", "label": "Weight rollup over a subtree", "note": "1 500 nodes, recursive CTE", "measured": true },
+          { "value": "~10 ms", "label": "Period rollup over a subtree", "note": "Same map, same read path", "measured": true }
+        ],
+        "decisions": [
+          {
+            "h": "Local coordinates instead of an infinite canvas",
+            "p": "Depth is implemented as a drill-down into a node, not as a zoom level. The consequence is that every query is bounded by a single plane and is therefore always fast: no tiles, no quadtree, no level-of-detail work was needed. There are three fixed scales and no free zoom, deliberately."
+          },
+          {
+            "h": "Hybrid canvas rendering",
+            "p": "PixiJS over WebGL draws the grid and the edges; the cards live in a DOM layer above it. Text stays crisp at every scale, input and accessibility stay native to the browser, and the heavy graphics go to the GPU."
+          },
+          {
+            "h": "Privacy that is structural, not conditional",
+            "p": "Visibility is a property of the map as a whole - there is no per-node flag. A public request checks it once, on the map, so the nodes of a private map are unreachable by structure rather than filtered out by a condition. Public pages never read the session cookie at all."
+          },
+          {
+            "h": "Derived values are never stored",
+            "p": "Weights (a budget of 1 200 000 tenge, say) and periods are summed over the whole subtree with a recursive CTE on every read. Editing a leaf therefore cannot physically leave a stale figure on an ancestor. Measured on a map at the size ceiling - 1 500 nodes, documents around 2 KB - that is roughly 7 ms for weights and 10 ms for periods."
+          },
+          {
+            "h": "Periods show two numbers, not one",
+            "p": "This is a product decision, not a technical one. Intervals do not add up the way quantities do, so a parent carries a calendar window - earliest start to latest end - and a total effort, separately. The gap between the two is the information: effort larger than the window means the steps run in parallel, effort smaller than the window means there is idle time between them."
+          },
+          {
+            "h": "One bad row cannot take down a plane",
+            "p": "In PostgreSQL, casting '2026-02-31' to date does not normalise - it throws. A single date like that inside JSONB would turn the read of an entire plane into a 500. The cast therefore runs only under pg_input_is_valid inside a CASE, because CASE guarantees evaluation order and a plain AND does not."
+          },
+          {
+            "h": "Canvas groups are a label, not a container",
+            "p": "A node does not reference a group and a group does not reference a node: membership is decided geometrically, by one rule shared between the canvas and the server-side render. Deleting a frame therefore cannot touch the cards inside it, and the system keeps exactly one hierarchy."
+          },
+          {
+            "h": "Optimistic UI throughout",
+            "p": "IDs are generated on the client, so a card appears before the server answers. Writes go through a coalescing queue - a drag collapses into a single PATCH - and planes are cached with ETag revalidation, which makes stepping back up a level instant."
+          },
+          {
+            "h": "SEO is the only growth channel",
+            "p": "Hence server-side rendering for public pages, a flat domain with no subdomains so no wildcard TLS certificate is needed, and slugs with homoglyph normalisation."
+          }
+        ],
+        "look": [
+          "Drilling two or three levels down, with breadcrumbs.",
+          "A budget total pulling up through the tree from the leaves.",
+          "Publishing a map and opening its read-only page.",
+          "Group frames on the canvas turning into list headings on the public page.",
+          "The catalogue with its filters."
+        ],
+        "note": {
+          "label": "Method",
+          "body": "The rollup figures were measured on a map at the size ceiling - 1 500 nodes with documents of about 2 KB - against PostgreSQL 16. They are worst-case ceilings from a synthetic map, not production telemetry."
+        }
+      },
+      "qurbaqa": {
+        "title": "Qurbaqa",
+        "role": "Solo - api, web, mobile, admin",
+        "lede": "A personal life tracker: money, food, sport, goals and health in one place. The product mechanic is modules - you connect only the sections you need, and the app assembles around them, menu and assistant context included. On top of that sits light gamification: a pixel-art frog called Pilar, a pond that grows with every connected module, streaks, levels and XP.",
+        "differentiator": "A monorepo of four applications sharing one API, plus a pixel-art UI kit of my own, pixkit, published to npm from CI and used by both the React and the React Native clients.",
+        "stats": [
+          { "value": "~93 000", "label": "Lines of handwritten TS / Vue", "note": "Excludes ~73 000 lines of vendored API clients" },
+          { "value": "238 / 31", "label": "Endpoints / controllers", "note": "NestJS, documented with Swagger" },
+          { "value": "60 / 52", "label": "Prisma models / migrations", "note": "PostgreSQL" },
+          { "value": "945", "label": "Commits, Nov 2025 to Sep 2026", "note": "Roughly ten months of evenings" }
+        ],
+        "decisions": [
+          {
+            "h": "Multi-currency without lying",
+            "p": "Money is built around one rule: the rate is set by the user, frozen into the budget period, and never silently replaced by a market rate. Currency lives on the period, on every budget line and on every recorded expense. Amounts convert to the main currency at the frozen rate, and a currency with no rate is honestly excluded from the total and flagged rather than guessed at."
+          },
+          {
+            "h": "A budget from money, not from accounts",
+            "p": "Instead of linking bank accounts, you take a snapshot of what you have right now and where, set a period until payday, split it by line, and get a daily limit that is recomputed each day from what is left. An overspend tightens the following days by itself, with no manual re-planning."
+          },
+          {
+            "h": "An LLM in production, for one job",
+            "p": "Transaction categorisation runs through Claude Haiku with the user's own rules layered on top. The same path parses receipts from photos and PDFs and imports bank statements - a dedicated parser for Freedom Bank plus a generic tabular one, with text extraction from PDF."
+          },
+          {
+            "h": "Modules as an architectural contract, not as tabs",
+            "p": "Connecting a module is user state that gates access on the server through a RequireModule guard, and changes navigation, tasks and data behind it. It runs through everything from the Prisma schema to the tab bar."
+          },
+          {
+            "h": "Design as the source of truth",
+            "p": "Screens are built from artboards, with links to specific artboards kept in the code. Drift between design and code is fixed pointwise, with a written reason where the code departs deliberately - long amounts wrap rather than truncate with an ellipsis, for instance."
+          },
+          {
+            "h": "Engineering discipline",
+            "p": "A spec-driven process on GitHub Spec Kit with 19 specifications, a BullMQ notification queue with per-user settings and reminders, optimistic mutations with rollback on both clients, a single refresh token shared across parallel requests, and end-to-end tests running on a real device."
+          }
+        ],
+        "look": [
+          "Connecting a module and watching the menu, the tasks and the pond change with it.",
+          "A budget period with two currencies and one frozen rate.",
+          "A receipt photographed and turned into categorised expenses.",
+          "The same pixkit components rendering in the web app and the mobile app."
+        ],
+        "scaleList": [
+          "Monorepo of four applications: API, web, mobile, admin",
+          "48 mobile screens, 54 web views and components",
+          "Three languages (ru / en / kz) in every client, plus server-side localisation of reference data",
+          "18 Maestro end-to-end scenarios and unit tests on the business rules",
+          "Native integrations: Google Sign-In, push notifications, Apple Health and Health Connect"
+        ],
+        "note": {
+          "label": "Scope",
+          "body": "A personal product, in daily use by its author. The mobile client is a custom Expo dev build rather than a store release, and the apps are single-user: there is no multi-tenant story here."
+        }
+      }
+    }
+  },
+
+  "ru": {
+    "lang": "ru",
+    "displayName": "Руслан Шаяхметов",
+    "dir": "ru/",
+    "meta": {
+      "homeTitle": "Руслан Шаяхметов - Senior Backend Engineer",
+      "homeDescription": "Бэкенд-инженер, 9 лет опыта. Владею 95 Node.js-сервисами платформы клинических исследований. Node.js, TypeScript, AWS. Бангкок, работа удалённо по B2B.",
+      "otherLangLabel": "EN",
+      "otherLangName": "English"
+    },
+    "nav": { "work": "Проекты", "experience": "Опыт", "skills": "Навыки", "contact": "Контакты", "back": "На главную" },
+    "ui": {
+      "theme": "Тема",
+      "language": "Язык",
+      "dark": "Тёмная",
+      "light": "Светлая",
+      "stack": "Стек",
+      "liveSite": "Открыть проект",
+      "downloadCv": "Скачать CV",
+      "petProject": "Пет-проект",
+      "decisions": "Решения, о которых интересно спрашивать",
+      "whatToLook": "Что посмотреть",
+      "scale": "Масштаб",
+      "skipToContent": "К содержимому"
+    },
+    "hero": {
+      "role": "Senior Backend Engineer - Node.js - TypeScript - AWS",
+      "location": "Бангкок, Таиланд (UTC+7) - гражданин Казахстана - удалённо, по B2B",
+      "lede": "Бэкенд-инженер, девять лет в профессии. С 2019 года владею 95 Node.js-сервисами платформы клинических исследований: приём, валидация и трансформация данных исследований, которые фармкомпании подают регуляторам, на датасетах до 100 ГБ в одном файле. Параллельно спроектировал с нуля платформу совместного редактирования в реальном времени и веду команду из трёх человек, которая её строит."
+    },
+    "stats": [
+      { "value": "9", "label": "Лет в бэкенде", "note": "С 2017 года, пять из них на одной платформе" },
+      { "value": "95", "label": "Node.js-сервисов под моим владением", "note": "Один монорепозиторий, один CI/CD" },
+      { "value": "1 408", "label": "Уязвимостей устранено", "note": "77 critical и 1 331 high - до нуля" },
+      { "value": "10% → 70%", "label": "Покрытие тестами", "note": "Единый Jest и общий пакет моков", "measured": true }
+    ],
+    "work": {
+      "eyebrow": "Проекты",
+      "title": "Пет-проекты",
+      "lede": "Два продукта, сделанных целиком вне работы, оба живые. На страницах ниже - не список фич, а решения и их обоснование."
+    },
+    "cards": {
+      "99node": {
+        "title": "99node",
+        "role": "Соло - full stack",
+        "lede": "Конструктор роадмапов, где глубина - это провал внутрь узла, а не бесконечное полотно. Бюджеты и сроки агрегируются по всему поддереву на каждое чтение, поэтому правка листа не может оставить устаревшую цифру у предка. Опубликованные карты отдаются SSR без сессии.",
+        "figures": [
+          { "value": "~20 000", "label": "строк TypeScript" },
+          { "value": "12 / 15", "label": "таблиц / миграций" },
+          { "value": "~10 мс", "label": "агрегат по 1 500 узлам" }
+        ]
+      },
+      "qurbaqa": {
+        "title": "Qurbaqa",
+        "role": "Соло - api, веб, мобильное, админка",
+        "lede": "Модульный трекер жизни: финансы, питание, спорт, цели, здоровье. Пользователь подключает только нужные разделы, и приложение вместе с меню и контекстом ассистента собирается под него. Мультивалютность построена на курсах, которые задаёт пользователь и замораживает бюджетный период.",
+        "figures": [
+          { "value": "~93 000", "label": "строк рукописного кода" },
+          { "value": "238 / 60", "label": "эндпоинтов / моделей" },
+          { "value": "945", "label": "коммитов за 10 месяцев" }
+        ]
+      }
+    },
+    "experienceSection": { "eyebrow": "Опыт", "title": "Девять лет, пять компаний", "lede": "" },
+    "experience": [
+      {
+        "period": "Июл 2019 - сейчас",
+        "title": "Senior Software Engineer",
+        "org": "AWWCOR, Inc",
+        "context": "Senior Software Engineer с 2023 года, до этого Software Engineer. Международная технологическая стаффинг-компания; конечный клиент - корпоративная платформа клинических исследований, название под NDA. Платформа работает под GxP / 21 CFR Part 11: неизменяемый аудит-трейл, происхождение данных, ролевой доступ, контролируемый релизный процесс Dev/Test/Prod.",
+        "points": [
+          "Владею всеми 95 Node.js/TypeScript-сервисами команды: высоконагруженные пайплайны приёма, валидации и трансформации на датасетах до 100 ГБ в одном файле.",
+          "Поддерживаю обратную совместимость между параллельными версиями API, чтобы корпоративные клиенты мигрировали в своём темпе.",
+          "Стандартизировал контракты между сервисами: генерируемые OpenAPI SDK и типизированные схемы событий для событийной архитектуры - измеримо сократилось число сообщений, уходящих в dead-letter-очереди.",
+          "Провёл миграцию долгих джоб с AWS Lambda на EC2, сняв потолок в 15 минут: задачи, которые раньше падали по таймауту, теперь доходят до конца.",
+          "Свёл 95 репозиториев в монорепозиторий с общими пакетами как единым источником правды - работа по управлению поставкой сократилась с двух недель до одного-двух дней.",
+          "Построил CI/CD по всем 95 репозиториям: валидация PR, автоматическое версионирование, публикация артефактов.",
+          "Провёл ремедиацию зависимостей по всем 95 репозиториям: устранены 77 critical и 1 331 high, до нуля открытых находок.",
+          "Исполнял обязанности технического лида команды из 6 человек при подмене тимлида; 5-10 ревью PR в неделю, онбординг 6 новых инженеров.",
+          "Унифицировал тестирование общим пакетом моков и перевёл набор на Jest, подняв покрытие с менее 10% до более 70%."
+        ],
+        "stack": ["Node.js", "TypeScript", "AWS Lambda", "SQS", "S3", "API Gateway", "PostgreSQL", "Redis", "SonarQube", "Docker"]
+      },
+      {
+        "period": "Дек 2023 - сейчас",
+        "title": "Senior Software Engineer / Project Lead (part-time)",
+        "org": "Almaty Kitap",
+        "context": "Параллельно с AWWCOR. Редактор совместного авторства и вёрстки учебников - канвас в духе Figma - для внутренних редакционных команд.",
+        "points": [
+          "Спроектировал всю архитектуру с нуля: модель документа, совместное редактирование и разрешение конфликтов на CRDT (Automerge), рендеринг канваса, версионирование и хранение. Все технические решения на проекте - мои.",
+          "Веду команду из 3 человек (2 инженера, 1 QA): определение объёма работ, декомпозиция, ревью, планирование релизов.",
+          "Довёл продукт от нуля до работающей системы; сейчас внутреннее тестирование перед выкаткой на редакции."
+        ],
+        "stack": ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Redis", "Automerge (CRDT)"]
+      },
+      {
+        "period": "Окт 2018 - июл 2019",
+        "title": "Software Engineer",
+        "org": "Lamoda",
+        "context": "",
+        "points": [
+          "Спроектировал и построил сервис фулфилмента, давший локальным партнёрам управление остатками в реальном времени вместо ручного процесса; доведён до preproduction и проверен с живым производителем обуви."
+        ],
+        "stack": []
+      },
+      {
+        "period": "Июл 2018 - сен 2018",
+        "title": "Full-stack Developer",
+        "org": "KulanOil",
+        "context": "",
+        "points": [
+          "Выпустил первую версию внутреннего сервиса документооборота, заменив бумажные согласования отслеживаемым цифровым процессом."
+        ],
+        "stack": []
+      },
+      {
+        "period": "Сен 2017 - июл 2018",
+        "title": "Junior Full-stack Developer",
+        "org": "Transavia LLC",
+        "context": "",
+        "points": [
+          "Построил бэкенд сервиса бронирования отелей, встроив Amadeus GDS через XML/SOAP в асинхронный пайплайн бронирования."
+        ],
+        "stack": []
+      }
+    ],
+    "skillsSection": { "eyebrow": "Навыки", "title": "С чем работаю", "lede": "" },
+    "skills": [
+      { "name": "Языки", "items": ["TypeScript", "JavaScript", "Python", "SQL"] },
+      { "name": "Бэкенд", "items": ["Node.js", "NestJS", "Express", "Проектирование REST API", "Событийная архитектура", "Микросервисы", "Serverless"] },
+      { "name": "Облако и инфраструктура", "items": ["AWS Lambda", "SQS", "S3", "API Gateway", "CloudWatch", "Docker", "CI/CD", "Linux"] },
+      { "name": "Данные", "items": ["PostgreSQL", "MongoDB", "Redis"] },
+      { "name": "Практики", "items": ["Системный дизайн", "Наблюдаемость и работа с инцидентами", "Quality gates (SonarQube)", "Юнит- и интеграционные тесты", "Code review", "Менторство"] }
+    ],
+    "education": { "eyebrow": "Образование", "title": "Бакалавр, Computer Science", "line": "SDU University, 2018. Награда за лучший дипломный проект." },
+    "contact": {
+      "eyebrow": "Контакты",
+      "title": "Открыт к предложениям",
+      "lede": "Бангкок (UTC+7), работаю удалённо по B2B через ИП в Казахстане. Быстрее всего - почтой.",
+      "availability": "С европейскими часами пересечение полное; с US Eastern - первая половина рабочего дня."
+    },
+    "footer": "Собран на собственной дизайн-системе. Статический HTML на GitHub Pages, без трекинга.",
+    "pages": {
+      "99node": {
+        "title": "99node",
+        "role": "Соло - full stack",
+        "lede": "Конструктор роадмапов. Пользователь строит карту по теме - «Python Programmer», «Отпуск в Таиланде», - проваливается внутрь любого шага и строит под-роадмап на любую глубину. Карту можно опубликовать в каталог: она становится read-only страницей, которую читают без регистрации.",
+        "differentiator": "Ключевое отличие от майндмэпа - глубина, а не размер полотна. Нет одного бесконечного холста: каждый узел - своя плоскость с локальными координатами.",
+        "stats": [
+          { "value": "~20 000", "label": "Строк TypeScript", "note": "web 12.9k, api 5.5k, shared 1.7k" },
+          { "value": "12 / 15", "label": "Таблиц / миграций", "note": "PostgreSQL 16" },
+          { "value": "~7 мс", "label": "Агрегат весов по поддереву", "note": "1 500 узлов, рекурсивный CTE", "measured": true },
+          { "value": "~10 мс", "label": "Агрегат периодов по поддереву", "note": "Та же карта, тот же путь чтения", "measured": true }
+        ],
+        "decisions": [
+          {
+            "h": "Локальные координаты вместо бесконечного полотна",
+            "p": "Глубина реализована как провал внутрь узла, а не как зум. Следствие: любой запрос ограничен одной плоскостью и потому всегда быстрый - не понадобились ни тайлы, ни quadtree, ни LOD. Масштабов три фиксированных, свободного зума нет сознательно."
+          },
+          {
+            "h": "Гибридный рендер канваса",
+            "p": "PixiJS на WebGL рисует сетку и связи, карточки живут в DOM-слое поверх. Текст остаётся чётким на любом масштабе, ввод и доступность - штатные браузерные, а тяжёлая графика уходит на GPU."
+          },
+          {
+            "h": "Приватность структурная, а не проверочная",
+            "p": "Видимость - свойство карты целиком, флага на узле нет. Публичный запрос проверяет её один раз на карте, поэтому узлы приватной карты недостижимы структурно, а не отфильтрованы условием. Публичные страницы вообще не читают сессионную куку."
+          },
+          {
+            "h": "Производные величины не хранятся никогда",
+            "p": "Веса (например, бюджет в 1 200 000 тенге) и периоды суммируются по всему поддереву рекурсивным CTE на каждое чтение - правка листа физически не может оставить устаревшую цифру у предка. Замерено на карте предельного размера (1 500 узлов, документы по ~2 КБ): около 7 мс для весов и 10 мс для периодов."
+          },
+          {
+            "h": "Периоды показывают два числа, а не одно",
+            "p": "Это продуктовое решение, а не техническое. Отрезки не складываются как количества: у родителя отдельно календарное окно (самое раннее начало - самый поздний конец) и отдельно суммарное усилие. Расхождение между ними и есть информация: усилие больше окна - шаги идут параллельно, меньше - между ними простои."
+          },
+          {
+            "h": "Одна плохая строка не роняет плоскость",
+            "p": "В PostgreSQL приведение '2026-02-31' к date не нормализуется, а бросает исключение - одна такая дата в JSONB уронила бы чтение целой плоскости в 500. Каст выполняется только под защитой pg_input_is_valid внутри CASE, потому что CASE гарантирует порядок вычисления, а обычный AND - нет."
+          },
+          {
+            "h": "Группы на канвасе - ярлык, а не контейнер",
+            "p": "Ни узел не ссылается на группу, ни группа на узел: состав определяется геометрически одним правилом, общим для канваса и серверного рендера. Поэтому удаление рамки не может тронуть карточки, а иерархия в системе остаётся ровно одна."
+          },
+          {
+            "h": "Оптимистичный UI",
+            "p": "ID генерируются на клиенте, карточка появляется до ответа сервера. Записи идут через коалесцирующую очередь - перетаскивания схлопываются в один PATCH, - а плоскости кэшируются с ETag-ревалидацией, поэтому возврат на уровень мгновенный."
+          },
+          {
+            "h": "SEO как единственный канал роста",
+            "p": "Отсюда SSR публичных страниц, плоский домен без поддоменов - чтобы не платить за wildcard-TLS - и slug с homoglyph-нормализацией."
+          }
+        ],
+        "look": [
+          "Провал на два-три уровня с хлебными крошками.",
+          "Сумма бюджета, подтягивающаяся снизу вверх по дереву.",
+          "Публикация карты и её read-only страница.",
+          "Группы-рамки, превращающиеся в заголовки списка на публичной странице.",
+          "Каталог с фильтрами."
+        ],
+        "note": {
+          "label": "Методика",
+          "body": "Цифры агрегатов замерены на карте предельного размера - 1 500 узлов, документы по ~2 КБ - на PostgreSQL 16. Это потолок на синтетической карте, а не продакшн-телеметрия."
+        }
+      },
+      "qurbaqa": {
+        "title": "Qurbaqa",
+        "role": "Соло - api, веб, мобильное, админка",
+        "lede": "Персональное приложение для отслеживания жизни: финансы, питание, спорт, цели и здоровье в одном месте. Ключевая продуктовая механика - модули: пользователь подключает только нужные разделы, и приложение вместе с меню, заданиями и контекстом ассистента собирается под него. Поверх - лёгкая геймификация: пиксельный маскот-лягушка Pilar, пруд, который растёт с каждым подключённым модулем, серии, уровни и XP.",
+        "differentiator": "Монорепозиторий из четырёх приложений на одном API плюс собственный пиксельный UI-кит pixkit, который публикуется в npm из CI и используется и React-, и React Native-клиентом.",
+        "stats": [
+          { "value": "~93 000", "label": "Строк рукописного TS / Vue", "note": "Без ~73 000 строк вендоренных API-клиентов" },
+          { "value": "238 / 31", "label": "Эндпоинтов / контроллеров", "note": "NestJS, документация в Swagger" },
+          { "value": "60 / 52", "label": "Моделей Prisma / миграций", "note": "PostgreSQL" },
+          { "value": "945", "label": "Коммитов, ноя 2025 - сен 2026", "note": "Около десяти месяцев вечеров" }
+        ],
+        "decisions": [
+          {
+            "h": "Мультивалютность без вранья",
+            "p": "Финансы построены вокруг правила: курс задаёт пользователь, он замораживается в бюджетном периоде и никогда не подменяется рыночным. Валюта есть у периода, у каждой статьи бюджета и у каждой отметки траты. Суммы конвертируются в основную валюту по замороженному курсу, а валюта без курса честно исключается из итога и помечается, а не угадывается."
+          },
+          {
+            "h": "Бюджет от денег, а не от счетов",
+            "p": "Вместо привязки к банковским счетам - снимок «сколько у меня сейчас и где», период до зарплаты, разбивка по статьям и дневной лимит, который пересчитывается каждый день от остатка. Перерасход ужимает следующие дни сам, без ручной правки плана."
+          },
+          {
+            "h": "LLM в проде под конкретную задачу",
+            "p": "Категоризация транзакций через Claude Haiku с собственными правилами пользователя поверх. Тем же путём разбираются чеки из фото и PDF и импортируются банковские выписки - свой парсер под Freedom Bank плюс универсальный табличный, с извлечением текста из PDF."
+          },
+          {
+            "h": "Модули как архитектурный контракт, а не как вкладки",
+            "p": "Подключение модуля - это состояние пользователя, которое гейтит доступ на сервере (guard RequireModule) и меняет навигацию, задания и данные. Механика сквозная: от схемы Prisma до таб-бара."
+          },
+          {
+            "h": "Дизайн как источник истины",
+            "p": "Экраны собираются по артбордам, ссылки на конкретные артборды проставлены в коде. Расхождения «дизайн - код» лечатся точечно и с объяснением, почему где-то сознательно отступили: например, длинные суммы переносятся, а не режутся многоточием."
+          },
+          {
+            "h": "Инженерная дисциплина",
+            "p": "Spec-driven процесс на GitHub Spec Kit с 19 спецификациями, очередь уведомлений на BullMQ с настройками и напоминаниями, оптимистичные мутации с откатом на обоих клиентах, единый refresh-токен на все параллельные запросы и E2E на реальном устройстве."
+          }
+        ],
+        "look": [
+          "Подключение модуля и то, как за ним меняются меню, задания и пруд.",
+          "Бюджетный период с двумя валютами и одним замороженным курсом.",
+          "Сфотографированный чек, превращённый в категоризированные траты.",
+          "Одни и те же компоненты pixkit в вебе и в мобильном приложении."
+        ],
+        "scaleList": [
+          "Монорепозиторий из четырёх приложений: API, веб, мобильное, админка",
+          "48 экранов в мобильном, 54 вью и компонента в вебе",
+          "Три языка (ru / en / kz) во всех клиентах и серверная локализация справочников",
+          "18 E2E-сценариев Maestro и юнит-тесты на бизнес-правилах",
+          "Нативные интеграции: Google Sign-In, push-уведомления, Apple Health и Health Connect"
+        ],
+        "note": {
+          "label": "Границы",
+          "body": "Персональный продукт, которым автор пользуется ежедневно. Мобильный клиент - кастомный dev build на Expo, а не релиз в сторах; приложение однопользовательское, мультитенантности здесь нет."
+        }
+      }
+    }
+  }
+}

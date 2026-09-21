@@ -1,17 +1,19 @@
-name: Build & Deploy CRA to gh-pages
+name: Build & Deploy static site to gh-pages
 
 on:
   push:
-    branches: ["main"] # сборка при пуше в main
-  workflow_dispatch: {} # возможность запустить вручную
+    branches: ["main"]
+  workflow_dispatch: {}
 
-# нужно право на запись, чтобы запушить в gh-pages
 permissions:
   contents: write
 
 concurrency:
   group: pages-deploy
   cancel-in-progress: true
+
+env:
+  SITE_URL: https://shayaqhmetov.github.io
 
 jobs:
   build:
@@ -20,31 +22,45 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Use Node
-        uses: actions/setup-node@v4
+      - name: Use Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 20
-          cache: npm
+          python-version: "3.12"
 
-      - name: Install deps
-        run: npm ci
+      - name: Generate pages from src/content.json
+        run: python3 src/build.py
 
-      - name: Build
-        run: npm run build
-        # Для user-site (username.github.io) не требуется PUBLIC_URL.
-        # env:
-        #   PUBLIC_URL: /
+      - name: Fail if committed HTML is stale
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated files differ from what is committed."
+            echo "Run: SITE_URL=$SITE_URL python3 src/build.py — then commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
 
-      # SPA-фикс для React Router на GitHub Pages:
-      - name: Add SPA 404 fallback
-        run: cp build/index.html build/404.html
+      - name: Assemble publish directory
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.claude/' \
+            --exclude '_site/' \
+            --exclude 'src/' \
+            --exclude 'README.md' \
+            --exclude '.gitignore' \
+            --exclude 'ngrok' \
+            --exclude '*.zip' \
+            ./ _site/
+          ls -R _site
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
-          publish_dir: build
+          publish_dir: _site
           publish_branch: gh-pages
-          enable_jekyll: false # добавит .nojekyll
-          force_orphan: true # новая история на каждой выкладке — без конфликтов
-          # cname: yourdomain.com  # если будет кастомный домен
+          enable_jekyll: false
+          force_orphan: true
+          # cname: yourdomain.com  # if a custom domain is added later

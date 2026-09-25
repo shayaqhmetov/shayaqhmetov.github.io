@@ -8,6 +8,7 @@ Output:   repository root           - index.html, ru/, projects/, ru/projects/, 
 Run:      python3 src/build.py
 """
 
+import hashlib
 import json
 import os
 import shutil
@@ -187,14 +188,15 @@ def head(c, other, prefix, title, description, canonical_path, alt_path):
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
         'family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">\n'
-        '<link rel="stylesheet" href="%sassets/css/tokens.css">\n'
-        '<link rel="stylesheet" href="%sassets/css/components.css">\n'
-        '<link rel="stylesheet" href="%sassets/css/site.css">\n'
+        '<link rel="stylesheet" href="%sassets/css/tokens.css?v=%s">\n'
+        '<link rel="stylesheet" href="%sassets/css/components.css?v=%s">\n'
+        '<link rel="stylesheet" href="%sassets/css/site.css?v=%s">\n'
         '<script>%s</script>\n'
         '<script type="application/ld+json">%s</script>\n'
         '</head>\n'
         % (c["lang"], e(title), e(description), e(title), e(description),
-           alternates, prefix, prefix, prefix, prefix, THEME_BOOT, json.dumps(jsonld, ensure_ascii=False))
+           alternates, prefix, prefix, asset_v("assets/css/tokens.css"), prefix, asset_v("assets/css/components.css"),
+           prefix, asset_v("assets/css/site.css"), THEME_BOOT, json.dumps(jsonld, ensure_ascii=False))
     )
 
 
@@ -240,9 +242,9 @@ def footer(c, prefix):
         '<p class="site-footer__links">'
         '<a href="mailto:%s">%s</a><a href="%s" rel="me noreferrer">%s</a>'
         '<a href="%s" rel="me noreferrer">%s</a></p>'
-        '</div></footer>\n<script src="%sassets/js/site.js" defer></script>\n</body>\n</html>\n'
+        '</div></footer>\n<script src="%sassets/js/site.js?v=%s" defer></script>\n</body>\n</html>\n'
         % (e(c["footer"]), e(p["email"]), e(p["email"]), e(p["github"]), e(p["githubLabel"]),
-           e(p["linkedin"]), e(p["linkedinLabel"]), prefix)
+           e(p["linkedin"]), e(p["linkedinLabel"]), prefix, asset_v("assets/js/site.js"))
     )
 
 
@@ -402,6 +404,12 @@ def write(path, text):
     with open(full, "w", encoding="utf-8") as f:
         f.write(text)
     print("  %s" % path)
+
+
+def asset_v(path):
+    """Short content hash, appended as ?v= so browsers refetch changed assets."""
+    with open(os.path.join(ROOT, path), "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()[:10]
 
 
 C = json.load(open(os.path.join(HERE, "content.json"), encoding="utf-8"))

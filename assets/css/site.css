@@ -1,0 +1,360 @@
+/* Page layout for the portfolio. Component rules live in components.css,
+   which is copied from the design system - do not duplicate them here. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--surface-canvas);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--signal); }
+a:hover { color: var(--signal-strong); }
+
+h1, h2, h3 { color: var(--ink-primary); }
+
+:focus-visible {
+  outline: var(--border-focus) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.page-shell {
+  width: 100%;
+  max-width: var(--layout-page);
+  margin: 0 auto;
+  padding-inline: var(--layout-gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--signal);
+  color: var(--ink-inverse);
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+/* --- header ------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--surface-canvas);
+  border-bottom: var(--border-hairline) solid var(--stroke-hairline);
+}
+
+.site-header__inner {
+  min-height: var(--layout-header);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--signal);
+  color: var(--ink-inverse);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  flex: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-5);
+  margin-right: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar { display: none; }
+
+.site-nav a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.site-nav a:hover { color: var(--ink-primary); }
+
+.site-tools {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+  flex: none;
+}
+
+.rs-seg__btn[aria-current="page"] {
+  background: var(--signal);
+  color: var(--ink-inverse);
+}
+a.rs-seg__btn { text-decoration: none; }
+span.rs-seg__btn { cursor: default; }
+
+/* --- hero --------------------------------------------------------- */
+
+.hero { padding-block: var(--space-9) var(--space-8); }
+
+.hero__role {
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-4);
+}
+
+.hero__name {
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero__location {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+  margin: var(--space-3) 0 0;
+  max-width: var(--layout-prose);
+}
+
+.hero__lede {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--ink-secondary);
+  max-width: var(--layout-prose);
+  margin: var(--space-5) 0 0;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.hero__actions .rs-btn { max-width: 100%; overflow-wrap: anywhere; }
+
+.hero__stats { margin-top: var(--space-7); }
+
+/* --- sections ----------------------------------------------------- */
+
+/* The design system keeps the card role on one line next to the title;
+   let it drop below the title and wrap so long roles cannot widen the page. */
+.rs-card__head { flex-wrap: wrap; row-gap: var(--space-1); }
+.rs-card__role { white-space: normal; }
+
+.section { padding-block: var(--space-8); }
+.section + .section { padding-top: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--space-5);
+}
+
+.skills { margin: 0; }
+
+.skills__row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-4) 0;
+  border-top: var(--border-hairline) solid var(--stroke-hairline);
+}
+
+.skills__row dt { color: var(--ink-primary); margin: 0; }
+.skills__row dd { margin: 0; }
+
+.education {
+  margin-top: var(--space-7);
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: var(--border-hairline) solid var(--stroke-hairline);
+  border-radius: var(--radius-lg);
+  max-width: var(--layout-prose);
+}
+.education p { margin: 0; }
+.education .mono-label { color: var(--ink-muted); text-transform: uppercase; }
+.education__title { margin-top: var(--space-2) !important; color: var(--ink-primary); }
+.education__line { margin-top: var(--space-1) !important; color: var(--ink-secondary); }
+
+.contact__availability {
+  max-width: var(--layout-prose);
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+/* --- project pages ------------------------------------------------ */
+
+.project-hero { padding-block: var(--space-7) var(--space-8); }
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+  margin-bottom: var(--space-6);
+}
+.back-link:hover { text-decoration: underline; }
+
+.project-hero__eyebrow { color: var(--ink-muted); text-transform: uppercase; margin: 0; }
+
+.project-hero__title {
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: var(--space-3) 0 0;
+}
+
+.project-hero__role {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin: var(--space-2) 0 0;
+}
+
+.project-hero__lede {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--ink-secondary);
+  max-width: var(--layout-prose);
+  margin: var(--space-5) 0 0;
+}
+
+.project-hero__diff {
+  max-width: var(--layout-prose);
+  color: var(--ink-primary);
+  border-left: var(--border-marker) solid var(--signal);
+  padding-left: var(--space-4);
+  margin: var(--space-5) 0 0;
+}
+
+.decisions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-5);
+}
+
+.decision {
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: var(--border-hairline) solid var(--stroke-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.decision__h {
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  margin: 0 0 var(--space-3);
+}
+
+.decision__p { margin: 0; color: var(--ink-secondary); }
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.columns h2 { margin: 0 0 var(--space-4); }
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.plain-list li {
+  position: relative;
+  padding-left: var(--space-4);
+  color: var(--ink-secondary);
+}
+
+.plain-list li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--stroke-strong);
+}
+
+/* --- footer ------------------------------------------------------- */
+
+.site-footer {
+  margin-top: var(--space-8);
+  border-top: var(--border-hairline) solid var(--stroke-hairline);
+  background: var(--surface-sunken);
+}
+
+.site-footer__inner {
+  padding-block: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-footer__note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+  max-width: var(--layout-prose);
+}
+
+.site-footer__links {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* --- narrow ------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .skills__row { grid-template-columns: 1fr; gap: var(--space-3); }
+}
+
+@media (max-width: 700px) {
+  .hero { padding-block: var(--space-7) var(--space-7); }
+  .hero__name { font-size: 40px; line-height: 44px; }
+  .project-hero__title { font-size: 32px; line-height: 38px; }
+  .site-nav { display: none; }
+  .section { padding-block: var(--space-7); }
+}
+
+@media (max-width: 420px) {
+  .page-shell { padding-inline: var(--space-4); }
+  .site-header__inner { gap: var(--space-3); }
+  .hero__name { font-size: 34px; line-height: 38px; }
+}

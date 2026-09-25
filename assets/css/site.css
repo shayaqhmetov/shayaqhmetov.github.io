@@ -155,16 +155,23 @@ span.rs-seg__btn { cursor: default; }
   margin-top: var(--space-6);
 }
 
+.hero__actions .rs-btn { max-width: 100%; overflow-wrap: anywhere; }
+
 .hero__stats { margin-top: var(--space-7); }
 
 /* --- sections ----------------------------------------------------- */
+
+/* The design system keeps the card role on one line next to the title;
+   let it drop below the title and wrap so long roles cannot widen the page. */
+.rs-card__head { flex-wrap: wrap; row-gap: var(--space-1); }
+.rs-card__role { white-space: normal; }
 
 .section { padding-block: var(--space-8); }
 .section + .section { padding-top: 0; }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: var(--space-5);
 }
 
@@ -248,7 +255,7 @@ span.rs-seg__btn { cursor: default; }
 
 .decisions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--space-5);
 }
 
@@ -270,7 +277,7 @@ span.rs-seg__btn { cursor: default; }
 
 .columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: var(--space-6);
   align-items: start;
 }
@@ -344,4 +351,10 @@ span.rs-seg__btn { cursor: default; }
   .project-hero__title { font-size: 32px; line-height: 38px; }
   .site-nav { display: none; }
   .section { padding-block: var(--space-7); }
+}
+
+@media (max-width: 420px) {
+  .page-shell { padding-inline: var(--space-4); }
+  .site-header__inner { gap: var(--space-3); }
+  .hero__name { font-size: 34px; line-height: 38px; }
 }

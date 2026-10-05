@@ -138,6 +138,21 @@ def note(n):
             '<p class="rs-note__body">%s</p></aside>' % (e(n["label"]), e(n["body"])))
 
 
+def shots(c, prefix, key, items):
+    """Screenshots of the live product: one figure per feature, one line of caption."""
+    parts = ['<div class="shots">']
+    for s in items:
+        src = "%sassets/img/%s/%s.%s.jpg" % (prefix, key, s["file"], c["lang"])
+        parts.append('<figure class="shot">'
+                     '<img class="shot__img" src="%s" alt="%s" width="800" height="600" '
+                     'loading="lazy" decoding="async">'
+                     '<figcaption class="shot__cap">'
+                     '<span class="shot__h">%s</span> %s</figcaption>'
+                     '</figure>' % (e(src), e(s["alt"]), e(s["h"]), e(s["p"])))
+    parts.append("</div>")
+    return "".join(parts)
+
+
 # --------------------------------------------------------------------------
 # chrome
 # --------------------------------------------------------------------------
@@ -369,6 +384,12 @@ def project(c, other, key):
     out.append('<div class="hero__stats">%s</div>' % stat_grid(page["stats"]))
     out.append("</div></section>")
 
+    if page.get("shots"):
+        out.append('<section class="section"><div class="page-shell">')
+        out.append(section_head("", c["ui"]["howItWorks"]))
+        out.append(shots(c, prefix, key, page["shots"]))
+        out.append("</div></section>")
+
     out.append('<section class="section"><div class="page-shell">')
     out.append(section_head("", c["ui"]["decisions"]))
     out.append('<div class="decisions">')
@@ -378,9 +399,11 @@ def project(c, other, key):
     out.append("</div></div></section>")
 
     out.append('<section class="section"><div class="page-shell columns">')
-    out.append('<div><h2 class="heading-m">%s</h2><ul class="plain-list">%s</ul></div>'
-               % (e(c["ui"]["whatToLook"]),
-                  "".join("<li>%s</li>" % e(x) for x in page["look"])))
+    # Pages that show screenshots do not also list what to look at - the shots are the list.
+    if page.get("look"):
+        out.append('<div><h2 class="heading-m">%s</h2><ul class="plain-list">%s</ul></div>'
+                   % (e(c["ui"]["whatToLook"]),
+                      "".join("<li>%s</li>" % e(x) for x in page["look"])))
     if page.get("scaleList"):
         out.append('<div><h2 class="heading-m">%s</h2><ul class="plain-list">%s</ul></div>'
                    % (e(c["ui"]["scale"]),

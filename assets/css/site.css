@@ -358,3 +358,46 @@ span.rs-seg__btn { cursor: default; }
   .site-header__inner { gap: var(--space-3); }
   .hero__name { font-size: 34px; line-height: 38px; }
 }
+
+/* Product screenshots on a project page ------------------------------------ */
+
+.shots {
+  display: grid;
+  gap: var(--space-7);
+}
+
+/* The shot carries the point, so it takes the width; the caption reads beside it. */
+.shot {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.shot__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--stroke-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+}
+
+.shot__cap {
+  color: var(--ink-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.shot__h {
+  display: block;
+  color: var(--ink-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 860px) {
+  .shot { grid-template-columns: 1fr; gap: var(--space-4); }
+  .shots { gap: var(--space-6); }
+}

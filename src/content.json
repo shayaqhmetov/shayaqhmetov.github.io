@@ -44,6 +44,7 @@
       "downloadCv": "Download CV",
       "petProject": "Pet project",
       "decisions": "Decisions worth asking about",
+      "howItWorks": "How it works",
       "whatToLook": "What to look at",
       "scale": "Scale",
       "skipToContent": "Skip to content"
@@ -171,7 +172,7 @@
       "99node": {
         "title": "99node",
         "role": "Solo - full stack",
-        "lede": "A roadmap builder. You lay out a map for a topic - \"Python Programmer\", \"A holiday in Thailand\" - then drill into any step and build a sub-roadmap inside it, to any depth. A map can be published to a catalogue, where it becomes a read-only page anyone can read without an account.",
+        "lede": "A roadmap builder. You lay out a map for a topic - \"Python Programmer\", \"A holiday in Thailand\" - then drill into any step and build a sub-roadmap inside it, to any depth. A map can be published to a catalogue and read without an account.",
         "differentiator": "What separates it from a mind map is depth rather than canvas size. There is no single infinite sheet: every node is a plane of its own with local coordinates.",
         "stats": [
           { "value": "~20 000", "label": "Lines of TypeScript", "note": "web 12.9k, api 5.5k, shared 1.7k" },
@@ -179,50 +180,48 @@
           { "value": "~7 ms", "label": "Weight rollup over a subtree", "note": "1 500 nodes, recursive CTE", "measured": true },
           { "value": "~10 ms", "label": "Period rollup over a subtree", "note": "Same map, same read path", "measured": true }
         ],
+        "shots": [
+          { "file": "catalog", "alt": "The public catalogue of published roadmaps, with search, tag filter and sort.", "h": "The public catalogue.", "p": "Published maps are readable with no account. Each card already carries the totals rolled up from the whole map - here 63 500 baht over 88 steps and 15 days." },
+          { "file": "map", "alt": "A published roadmap: a grid of day cards, each with its own budget and date.", "h": "A published map, read-only.", "p": "Every step shows how many steps are nested inside it and the budget summed from its entire subtree - 8 480 on day one, 11 350 on day two." },
+          { "file": "drilldown", "alt": "Inside a step: breadcrumbs, the step's own budget and date, and the steps nested within it.", "h": "Drilling into a step.", "p": "The step becomes a plane of its own, with breadcrumbs back up. The 8 480 above is exactly these children added up - nothing is stored on the parent." }
+        ],
         "decisions": [
           {
             "h": "Local coordinates instead of an infinite canvas",
-            "p": "Depth is implemented as a drill-down into a node, not as a zoom level. The consequence is that every query is bounded by a single plane and is therefore always fast: no tiles, no quadtree, no level-of-detail work was needed. There are three fixed scales and no free zoom, deliberately."
+            "p": "Depth is a drill-down into a node, not a zoom level, so every query is bounded by one plane - no tiles, no quadtree, no level-of-detail work."
           },
           {
             "h": "Hybrid canvas rendering",
-            "p": "PixiJS over WebGL draws the grid and the edges; the cards live in a DOM layer above it. Text stays crisp at every scale, input and accessibility stay native to the browser, and the heavy graphics go to the GPU."
+            "p": "PixiJS over WebGL draws the grid and edges, the cards stay in a DOM layer above it: crisp text and native input, heavy graphics on the GPU."
           },
           {
             "h": "Privacy that is structural, not conditional",
-            "p": "Visibility is a property of the map as a whole - there is no per-node flag. A public request checks it once, on the map, so the nodes of a private map are unreachable by structure rather than filtered out by a condition. Public pages never read the session cookie at all."
+            "p": "Visibility belongs to the map, not the node, so a public request checks it once and private nodes are unreachable by structure rather than filtered out."
           },
           {
             "h": "Derived values are never stored",
-            "p": "Weights (a budget of 1 200 000 tenge, say) and periods are summed over the whole subtree with a recursive CTE on every read. Editing a leaf therefore cannot physically leave a stale figure on an ancestor. Measured on a map at the size ceiling - 1 500 nodes, documents around 2 KB - that is roughly 7 ms for weights and 10 ms for periods."
+            "p": "Budgets and periods are summed over the subtree with a recursive CTE on every read, so editing a leaf cannot leave a stale number on an ancestor."
           },
           {
             "h": "Periods show two numbers, not one",
-            "p": "This is a product decision, not a technical one. Intervals do not add up the way quantities do, so a parent carries a calendar window - earliest start to latest end - and a total effort, separately. The gap between the two is the information: effort larger than the window means the steps run in parallel, effort smaller than the window means there is idle time between them."
+            "p": "Intervals do not add up like quantities, so a parent shows a calendar window and a total effort separately - the gap between them is the information."
           },
           {
             "h": "One bad row cannot take down a plane",
-            "p": "In PostgreSQL, casting '2026-02-31' to date does not normalise - it throws. A single date like that inside JSONB would turn the read of an entire plane into a 500. The cast therefore runs only under pg_input_is_valid inside a CASE, because CASE guarantees evaluation order and a plain AND does not."
+            "p": "Casting '2026-02-31' to date throws rather than normalising, so the cast runs under pg_input_is_valid inside a CASE and one bad row cannot 500 a whole plane."
           },
           {
             "h": "Canvas groups are a label, not a container",
-            "p": "A node does not reference a group and a group does not reference a node: membership is decided geometrically, by one rule shared between the canvas and the server-side render. Deleting a frame therefore cannot touch the cards inside it, and the system keeps exactly one hierarchy."
+            "p": "Group membership is decided geometrically by one rule shared with the server render, so deleting a frame cannot touch the cards and there stays exactly one hierarchy."
           },
           {
             "h": "Optimistic UI throughout",
-            "p": "IDs are generated on the client, so a card appears before the server answers. Writes go through a coalescing queue - a drag collapses into a single PATCH - and planes are cached with ETag revalidation, which makes stepping back up a level instant."
+            "p": "IDs are generated on the client and writes go through a coalescing queue, so cards appear before the server answers and a drag collapses into one PATCH."
           },
           {
             "h": "SEO is the only growth channel",
-            "p": "Hence server-side rendering for public pages, a flat domain with no subdomains so no wildcard TLS certificate is needed, and slugs with homoglyph normalisation."
+            "p": "SEO is the only growth channel: hence SSR for public pages, a flat domain that needs no wildcard certificate, and slugs with homoglyph normalisation."
           }
-        ],
-        "look": [
-          "Drilling two or three levels down, with breadcrumbs.",
-          "A budget total pulling up through the tree from the leaves.",
-          "Publishing a map and opening its read-only page.",
-          "Group frames on the canvas turning into list headings on the public page.",
-          "The catalogue with its filters."
         ],
         "note": {
           "label": "Method",
@@ -308,6 +307,7 @@
       "downloadCv": "Скачать CV",
       "petProject": "Пет-проект",
       "decisions": "Решения, о которых интересно спрашивать",
+      "howItWorks": "Как это работает",
       "whatToLook": "Что посмотреть",
       "scale": "Масштаб",
       "skipToContent": "К содержимому"
@@ -435,7 +435,7 @@
       "99node": {
         "title": "99node",
         "role": "Соло - full stack",
-        "lede": "Конструктор роадмапов. Пользователь строит карту по теме - «Python Programmer», «Отпуск в Таиланде», - проваливается внутрь любого шага и строит под-роадмап на любую глубину. Карту можно опубликовать в каталог: она становится read-only страницей, которую читают без регистрации.",
+        "lede": "Конструктор роадмапов. Пользователь строит карту по теме - «Python Programmer», «Отпуск в Таиланде», - проваливается внутрь любого шага и строит под-роадмап на любую глубину. Карту можно опубликовать в каталог и читать без регистрации.",
         "differentiator": "Ключевое отличие от майндмэпа - глубина, а не размер полотна. Нет одного бесконечного холста: каждый узел - своя плоскость с локальными координатами.",
         "stats": [
           { "value": "~20 000", "label": "Строк TypeScript", "note": "web 12.9k, api 5.5k, shared 1.7k" },
@@ -443,50 +443,48 @@
           { "value": "~7 мс", "label": "Агрегат весов по поддереву", "note": "1 500 узлов, рекурсивный CTE", "measured": true },
           { "value": "~10 мс", "label": "Агрегат периодов по поддереву", "note": "Та же карта, тот же путь чтения", "measured": true }
         ],
+        "shots": [
+          { "file": "catalog", "alt": "Публичный каталог опубликованных роадмапов: поиск, фильтр по тегам, сортировка.", "h": "Публичный каталог.", "p": "Опубликованные карты читаются без регистрации. На карточке уже видны агрегаты по всей карте - 63 500 бат на 88 шагов и 15 дней." },
+          { "file": "map", "alt": "Опубликованный роадмап: сетка карточек-дней, у каждой свой бюджет и дата.", "h": "Опубликованная карта, read-only.", "p": "У каждого шага видно, сколько шагов внутри, и бюджет, собранный по всему его поддереву: 8 480 в первый день, 11 350 во второй." },
+          { "file": "drilldown", "alt": "Внутри шага: хлебные крошки, бюджет и дата самого шага, вложенные в него шаги.", "h": "Провал внутрь шага.", "p": "Шаг становится отдельной плоскостью, крошки ведут наверх. Те самые 8 480 - это ровно сумма этих детей, у родителя ничего не хранится." }
+        ],
         "decisions": [
           {
             "h": "Локальные координаты вместо бесконечного полотна",
-            "p": "Глубина реализована как провал внутрь узла, а не как зум. Следствие: любой запрос ограничен одной плоскостью и потому всегда быстрый - не понадобились ни тайлы, ни quadtree, ни LOD. Масштабов три фиксированных, свободного зума нет сознательно."
+            "p": "Глубина - это провал внутрь узла, а не зум, поэтому любой запрос ограничен одной плоскостью: ни тайлов, ни quadtree, ни LOD не понадобилось."
           },
           {
             "h": "Гибридный рендер канваса",
-            "p": "PixiJS на WebGL рисует сетку и связи, карточки живут в DOM-слое поверх. Текст остаётся чётким на любом масштабе, ввод и доступность - штатные браузерные, а тяжёлая графика уходит на GPU."
+            "p": "PixiJS на WebGL рисует сетку и связи, карточки живут в DOM-слое поверх: текст чёткий, ввод штатный, тяжёлая графика на GPU."
           },
           {
             "h": "Приватность структурная, а не проверочная",
-            "p": "Видимость - свойство карты целиком, флага на узле нет. Публичный запрос проверяет её один раз на карте, поэтому узлы приватной карты недостижимы структурно, а не отфильтрованы условием. Публичные страницы вообще не читают сессионную куку."
+            "p": "Видимость - свойство карты, а не узла: публичный запрос проверяет её один раз, и узлы приватной карты недостижимы структурно, а не отфильтрованы."
           },
           {
             "h": "Производные величины не хранятся никогда",
-            "p": "Веса (например, бюджет в 1 200 000 тенге) и периоды суммируются по всему поддереву рекурсивным CTE на каждое чтение - правка листа физически не может оставить устаревшую цифру у предка. Замерено на карте предельного размера (1 500 узлов, документы по ~2 КБ): около 7 мс для весов и 10 мс для периодов."
+            "p": "Бюджеты и периоды суммируются по поддереву рекурсивным CTE на каждое чтение, поэтому правка листа не может оставить устаревшую цифру у предка."
           },
           {
             "h": "Периоды показывают два числа, а не одно",
-            "p": "Это продуктовое решение, а не техническое. Отрезки не складываются как количества: у родителя отдельно календарное окно (самое раннее начало - самый поздний конец) и отдельно суммарное усилие. Расхождение между ними и есть информация: усилие больше окна - шаги идут параллельно, меньше - между ними простои."
+            "p": "Отрезки не складываются как количества, поэтому у родителя отдельно календарное окно и отдельно суммарное усилие - информация в расхождении между ними."
           },
           {
             "h": "Одна плохая строка не роняет плоскость",
-            "p": "В PostgreSQL приведение '2026-02-31' к date не нормализуется, а бросает исключение - одна такая дата в JSONB уронила бы чтение целой плоскости в 500. Каст выполняется только под защитой pg_input_is_valid внутри CASE, потому что CASE гарантирует порядок вычисления, а обычный AND - нет."
+            "p": "Приведение '2026-02-31' к date не нормализуется, а бросает исключение, поэтому каст идёт под pg_input_is_valid внутри CASE: одна строка не роняет плоскость в 500."
           },
           {
             "h": "Группы на канвасе - ярлык, а не контейнер",
-            "p": "Ни узел не ссылается на группу, ни группа на узел: состав определяется геометрически одним правилом, общим для канваса и серверного рендера. Поэтому удаление рамки не может тронуть карточки, а иерархия в системе остаётся ровно одна."
+            "p": "Состав группы определяется геометрически, одним правилом с серверным рендером, поэтому удаление рамки не трогает карточки, а иерархия остаётся одна."
           },
           {
             "h": "Оптимистичный UI",
-            "p": "ID генерируются на клиенте, карточка появляется до ответа сервера. Записи идут через коалесцирующую очередь - перетаскивания схлопываются в один PATCH, - а плоскости кэшируются с ETag-ревалидацией, поэтому возврат на уровень мгновенный."
+            "p": "ID генерируются на клиенте, записи идут через коалесцирующую очередь: карточка появляется до ответа сервера, перетаскивание схлопывается в один PATCH."
           },
           {
             "h": "SEO как единственный канал роста",
-            "p": "Отсюда SSR публичных страниц, плоский домен без поддоменов - чтобы не платить за wildcard-TLS - и slug с homoglyph-нормализацией."
+            "p": "SEO - единственный канал роста: отсюда SSR публичных страниц, плоский домен без wildcard-сертификата и slug с homoglyph-нормализацией."
           }
-        ],
-        "look": [
-          "Провал на два-три уровня с хлебными крошками.",
-          "Сумма бюджета, подтягивающаяся снизу вверх по дереву.",
-          "Публикация карты и её read-only страница.",
-          "Группы-рамки, превращающиеся в заголовки списка на публичной странице.",
-          "Каталог с фильтрами."
         ],
         "note": {
           "label": "Методика",

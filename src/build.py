@@ -390,13 +390,14 @@ def project(c, other, key):
         out.append(shots(c, prefix, key, page["shots"]))
         out.append("</div></section>")
 
-    out.append('<section class="section"><div class="page-shell">')
-    out.append(section_head("", c["ui"]["decisions"]))
-    out.append('<div class="decisions">')
-    for d in page["decisions"]:
-        out.append('<article class="decision"><h3 class="decision__h">%s</h3>'
-                   '<p class="decision__p">%s</p></article>' % (e(d["h"]), e(d["p"])))
-    out.append("</div></div></section>")
+    if page.get("decisions"):
+        out.append('<section class="section"><div class="page-shell">')
+        out.append(section_head("", c["ui"]["decisions"]))
+        out.append('<div class="decisions">')
+        for d in page["decisions"]:
+            out.append('<article class="decision"><h3 class="decision__h">%s</h3>'
+                       '<p class="decision__p">%s</p></article>' % (e(d["h"]), e(d["p"])))
+        out.append("</div></div></section>")
 
     out.append('<section class="section"><div class="page-shell columns">')
     # Pages that show screenshots do not also list what to look at - the shots are the list.
@@ -411,7 +412,8 @@ def project(c, other, key):
     out.append('<div><h2 class="heading-m">%s</h2>%s</div>' % (e(c["ui"]["stack"]), tags(proj["stack"])))
     out.append("</div></section>")
 
-    out.append('<section class="section"><div class="page-shell">%s</div></section>' % note(page["note"]))
+    if page.get("note"):
+        out.append('<section class="section"><div class="page-shell">%s</div></section>' % note(page["note"]))
 
     out.append(footer(c, prefix))
     return "".join(out)

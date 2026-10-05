@@ -184,49 +184,7 @@
           { "file": "catalog", "alt": "The public catalogue of published roadmaps, with search, tag filter and sort.", "h": "The public catalogue.", "p": "Published maps are readable with no account. Each card already carries the totals rolled up from the whole map - here 63 500 baht over 88 steps and 15 days." },
           { "file": "map", "alt": "A published roadmap: a grid of day cards, each with its own budget and date.", "h": "A published map, read-only.", "p": "Every step shows how many steps are nested inside it and the budget summed from its entire subtree - 8 480 on day one, 11 350 on day two." },
           { "file": "drilldown", "alt": "Inside a step: breadcrumbs, the step's own budget and date, and the steps nested within it.", "h": "Drilling into a step.", "p": "The step becomes a plane of its own, with breadcrumbs back up. The 8 480 above is exactly these children added up - nothing is stored on the parent." }
-        ],
-        "decisions": [
-          {
-            "h": "Local coordinates instead of an infinite canvas",
-            "p": "Depth is a drill-down into a node, not a zoom level, so every query is bounded by one plane - no tiles, no quadtree, no level-of-detail work."
-          },
-          {
-            "h": "Hybrid canvas rendering",
-            "p": "PixiJS over WebGL draws the grid and edges, the cards stay in a DOM layer above it: crisp text and native input, heavy graphics on the GPU."
-          },
-          {
-            "h": "Privacy that is structural, not conditional",
-            "p": "Visibility belongs to the map, not the node, so a public request checks it once and private nodes are unreachable by structure rather than filtered out."
-          },
-          {
-            "h": "Derived values are never stored",
-            "p": "Budgets and periods are summed over the subtree with a recursive CTE on every read, so editing a leaf cannot leave a stale number on an ancestor."
-          },
-          {
-            "h": "Periods show two numbers, not one",
-            "p": "Intervals do not add up like quantities, so a parent shows a calendar window and a total effort separately - the gap between them is the information."
-          },
-          {
-            "h": "One bad row cannot take down a plane",
-            "p": "Casting '2026-02-31' to date throws rather than normalising, so the cast runs under pg_input_is_valid inside a CASE and one bad row cannot 500 a whole plane."
-          },
-          {
-            "h": "Canvas groups are a label, not a container",
-            "p": "Group membership is decided geometrically by one rule shared with the server render, so deleting a frame cannot touch the cards and there stays exactly one hierarchy."
-          },
-          {
-            "h": "Optimistic UI throughout",
-            "p": "IDs are generated on the client and writes go through a coalescing queue, so cards appear before the server answers and a drag collapses into one PATCH."
-          },
-          {
-            "h": "SEO is the only growth channel",
-            "p": "SEO is the only growth channel: hence SSR for public pages, a flat domain that needs no wildcard certificate, and slugs with homoglyph normalisation."
-          }
-        ],
-        "note": {
-          "label": "Method",
-          "body": "The rollup figures were measured on a map at the size ceiling - 1 500 nodes with documents of about 2 KB - against PostgreSQL 16. They are worst-case ceilings from a synthetic map, not production telemetry."
-        }
+        ]
       },
       "qurbaqa": {
         "title": "Qurbaqa",
@@ -447,49 +405,7 @@
           { "file": "catalog", "alt": "Публичный каталог опубликованных роадмапов: поиск, фильтр по тегам, сортировка.", "h": "Публичный каталог.", "p": "Опубликованные карты читаются без регистрации. На карточке уже видны агрегаты по всей карте - 63 500 бат на 88 шагов и 15 дней." },
           { "file": "map", "alt": "Опубликованный роадмап: сетка карточек-дней, у каждой свой бюджет и дата.", "h": "Опубликованная карта, read-only.", "p": "У каждого шага видно, сколько шагов внутри, и бюджет, собранный по всему его поддереву: 8 480 в первый день, 11 350 во второй." },
           { "file": "drilldown", "alt": "Внутри шага: хлебные крошки, бюджет и дата самого шага, вложенные в него шаги.", "h": "Провал внутрь шага.", "p": "Шаг становится отдельной плоскостью, крошки ведут наверх. Те самые 8 480 - это ровно сумма этих детей, у родителя ничего не хранится." }
-        ],
-        "decisions": [
-          {
-            "h": "Локальные координаты вместо бесконечного полотна",
-            "p": "Глубина - это провал внутрь узла, а не зум, поэтому любой запрос ограничен одной плоскостью: ни тайлов, ни quadtree, ни LOD не понадобилось."
-          },
-          {
-            "h": "Гибридный рендер канваса",
-            "p": "PixiJS на WebGL рисует сетку и связи, карточки живут в DOM-слое поверх: текст чёткий, ввод штатный, тяжёлая графика на GPU."
-          },
-          {
-            "h": "Приватность структурная, а не проверочная",
-            "p": "Видимость - свойство карты, а не узла: публичный запрос проверяет её один раз, и узлы приватной карты недостижимы структурно, а не отфильтрованы."
-          },
-          {
-            "h": "Производные величины не хранятся никогда",
-            "p": "Бюджеты и периоды суммируются по поддереву рекурсивным CTE на каждое чтение, поэтому правка листа не может оставить устаревшую цифру у предка."
-          },
-          {
-            "h": "Периоды показывают два числа, а не одно",
-            "p": "Отрезки не складываются как количества, поэтому у родителя отдельно календарное окно и отдельно суммарное усилие - информация в расхождении между ними."
-          },
-          {
-            "h": "Одна плохая строка не роняет плоскость",
-            "p": "Приведение '2026-02-31' к date не нормализуется, а бросает исключение, поэтому каст идёт под pg_input_is_valid внутри CASE: одна строка не роняет плоскость в 500."
-          },
-          {
-            "h": "Группы на канвасе - ярлык, а не контейнер",
-            "p": "Состав группы определяется геометрически, одним правилом с серверным рендером, поэтому удаление рамки не трогает карточки, а иерархия остаётся одна."
-          },
-          {
-            "h": "Оптимистичный UI",
-            "p": "ID генерируются на клиенте, записи идут через коалесцирующую очередь: карточка появляется до ответа сервера, перетаскивание схлопывается в один PATCH."
-          },
-          {
-            "h": "SEO как единственный канал роста",
-            "p": "SEO - единственный канал роста: отсюда SSR публичных страниц, плоский домен без wildcard-сертификата и slug с homoglyph-нормализацией."
-          }
-        ],
-        "note": {
-          "label": "Методика",
-          "body": "Цифры агрегатов замерены на карте предельного размера - 1 500 узлов, документы по ~2 КБ - на PostgreSQL 16. Это потолок на синтетической карте, а не продакшн-телеметрия."
-        }
+        ]
       },
       "qurbaqa": {
         "title": "Qurbaqa",

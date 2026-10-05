@@ -197,32 +197,6 @@
           { "value": "60 / 52", "label": "Prisma models / migrations", "note": "PostgreSQL" },
           { "value": "945", "label": "Commits, Nov 2025 to Sep 2026", "note": "Roughly ten months of evenings" }
         ],
-        "decisions": [
-          {
-            "h": "Multi-currency without lying",
-            "p": "Money is built around one rule: the rate is set by the user, frozen into the budget period, and never silently replaced by a market rate. Currency lives on the period, on every budget line and on every recorded expense. Amounts convert to the main currency at the frozen rate, and a currency with no rate is honestly excluded from the total and flagged rather than guessed at."
-          },
-          {
-            "h": "A budget from money, not from accounts",
-            "p": "Instead of linking bank accounts, you take a snapshot of what you have right now and where, set a period until payday, split it by line, and get a daily limit that is recomputed each day from what is left. An overspend tightens the following days by itself, with no manual re-planning."
-          },
-          {
-            "h": "An LLM in production, for one job",
-            "p": "Transaction categorisation runs through Claude Haiku with the user's own rules layered on top. The same path parses receipts from photos and PDFs and imports bank statements - a dedicated parser for Freedom Bank plus a generic tabular one, with text extraction from PDF."
-          },
-          {
-            "h": "Modules as an architectural contract, not as tabs",
-            "p": "Connecting a module is user state that gates access on the server through a RequireModule guard, and changes navigation, tasks and data behind it. It runs through everything from the Prisma schema to the tab bar."
-          },
-          {
-            "h": "Design as the source of truth",
-            "p": "Screens are built from artboards, with links to specific artboards kept in the code. Drift between design and code is fixed pointwise, with a written reason where the code departs deliberately - long amounts wrap rather than truncate with an ellipsis, for instance."
-          },
-          {
-            "h": "Engineering discipline",
-            "p": "A spec-driven process on GitHub Spec Kit with 19 specifications, a BullMQ notification queue with per-user settings and reminders, optimistic mutations with rollback on both clients, a single refresh token shared across parallel requests, and end-to-end tests running on a real device."
-          }
-        ],
         "look": [
           "Connecting a module and watching the menu, the tasks and the pond change with it.",
           "A budget period with two currencies and one frozen rate.",
@@ -235,11 +209,7 @@
           "Three languages (ru / en / kz) in every client, plus server-side localisation of reference data",
           "18 Maestro end-to-end scenarios and unit tests on the business rules",
           "Native integrations: Google Sign-In, push notifications, Apple Health and Health Connect"
-        ],
-        "note": {
-          "label": "Scope",
-          "body": "A personal product, in daily use by its author. The mobile client is a custom Expo dev build rather than a store release, and the apps are single-user: there is no multi-tenant story here."
-        }
+        ]
       }
     }
   },
@@ -418,32 +388,6 @@
           { "value": "60 / 52", "label": "Моделей Prisma / миграций", "note": "PostgreSQL" },
           { "value": "945", "label": "Коммитов, ноя 2025 - сен 2026", "note": "Около десяти месяцев вечеров" }
         ],
-        "decisions": [
-          {
-            "h": "Мультивалютность без вранья",
-            "p": "Финансы построены вокруг правила: курс задаёт пользователь, он замораживается в бюджетном периоде и никогда не подменяется рыночным. Валюта есть у периода, у каждой статьи бюджета и у каждой отметки траты. Суммы конвертируются в основную валюту по замороженному курсу, а валюта без курса честно исключается из итога и помечается, а не угадывается."
-          },
-          {
-            "h": "Бюджет от денег, а не от счетов",
-            "p": "Вместо привязки к банковским счетам - снимок «сколько у меня сейчас и где», период до зарплаты, разбивка по статьям и дневной лимит, который пересчитывается каждый день от остатка. Перерасход ужимает следующие дни сам, без ручной правки плана."
-          },
-          {
-            "h": "LLM в проде под конкретную задачу",
-            "p": "Категоризация транзакций через Claude Haiku с собственными правилами пользователя поверх. Тем же путём разбираются чеки из фото и PDF и импортируются банковские выписки - свой парсер под Freedom Bank плюс универсальный табличный, с извлечением текста из PDF."
-          },
-          {
-            "h": "Модули как архитектурный контракт, а не как вкладки",
-            "p": "Подключение модуля - это состояние пользователя, которое гейтит доступ на сервере (guard RequireModule) и меняет навигацию, задания и данные. Механика сквозная: от схемы Prisma до таб-бара."
-          },
-          {
-            "h": "Дизайн как источник истины",
-            "p": "Экраны собираются по артбордам, ссылки на конкретные артборды проставлены в коде. Расхождения «дизайн - код» лечатся точечно и с объяснением, почему где-то сознательно отступили: например, длинные суммы переносятся, а не режутся многоточием."
-          },
-          {
-            "h": "Инженерная дисциплина",
-            "p": "Spec-driven процесс на GitHub Spec Kit с 19 спецификациями, очередь уведомлений на BullMQ с настройками и напоминаниями, оптимистичные мутации с откатом на обоих клиентах, единый refresh-токен на все параллельные запросы и E2E на реальном устройстве."
-          }
-        ],
         "look": [
           "Подключение модуля и то, как за ним меняются меню, задания и пруд.",
           "Бюджетный период с двумя валютами и одним замороженным курсом.",
@@ -456,11 +400,7 @@
           "Три языка (ru / en / kz) во всех клиентах и серверная локализация справочников",
           "18 E2E-сценариев Maestro и юнит-тесты на бизнес-правилах",
           "Нативные интеграции: Google Sign-In, push-уведомления, Apple Health и Health Connect"
-        ],
-        "note": {
-          "label": "Границы",
-          "body": "Персональный продукт, которым автор пользуется ежедневно. Мобильный клиент - кастомный dev build на Expo, а не релиз в сторах; приложение однопользовательское, мультитенантности здесь нет."
-        }
+        ]
       }
     }
   }

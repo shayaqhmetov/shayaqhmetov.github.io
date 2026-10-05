@@ -197,11 +197,10 @@
           { "value": "60 / 52", "label": "Prisma models / migrations", "note": "PostgreSQL" },
           { "value": "945", "label": "Commits, Nov 2025 to Sep 2026", "note": "Roughly ten months of evenings" }
         ],
-        "look": [
-          "Connecting a module and watching the menu, the tasks and the pond change with it.",
-          "A budget period with two currencies and one frozen rate.",
-          "A receipt photographed and turned into categorised expenses.",
-          "The same pixkit components rendering in the web app and the mobile app."
+        "shots": [
+          { "file": "home", "alt": "The home screen: the connected modules in the sidebar, the daily quests and the pond.", "h": "Only the modules you connect.", "p": "Finance, sport, food and goals are connected per user, and the sidebar, the daily quests and the assistant's briefing assemble around whatever is on." },
+          { "file": "budget", "alt": "A budget period: two pots in two currencies, the daily allowance and the frozen rate.", "h": "Money that never lies to you.", "p": "Two pots in two currencies stay side by side instead of being merged. The rate is the one you set, frozen into the period - until you give it, foreign money is left out of the total and said so." },
+          { "file": "sport", "alt": "The sport module: streak, hours moved, volume lifted and personal records.", "h": "Each module is a product of its own.", "p": "Sport keeps streaks, weekly load and personal records; the same shell carries recipes, budgets and goals without any of them knowing about the others." }
         ],
         "scaleList": [
           "Monorepo of four applications: API, web, mobile, admin",
@@ -388,11 +387,10 @@
           { "value": "60 / 52", "label": "Моделей Prisma / миграций", "note": "PostgreSQL" },
           { "value": "945", "label": "Коммитов, ноя 2025 - сен 2026", "note": "Около десяти месяцев вечеров" }
         ],
-        "look": [
-          "Подключение модуля и то, как за ним меняются меню, задания и пруд.",
-          "Бюджетный период с двумя валютами и одним замороженным курсом.",
-          "Сфотографированный чек, превращённый в категоризированные траты.",
-          "Одни и те же компоненты pixkit в вебе и в мобильном приложении."
+        "shots": [
+          { "file": "home", "alt": "Главный экран: подключённые модули в меню, ежедневные задания и пруд.", "h": "Только те модули, что подключил.", "p": "Финансы, спорт, питание и цели подключаются по отдельности, а меню, ежедневные задания и сводка ассистента собираются вокруг включённых." },
+          { "file": "budget", "alt": "Бюджетный период: два места в двух валютах, дневной лимит и замороженный курс.", "h": "Деньги, которые не врут.", "p": "Два места в двух валютах лежат рядом, а не схлопываются в одну сумму. Курс - тот, что задал пользователь, и он заморожен в периоде: пока курса нет, валюта честно не входит в итог и об этом написано." },
+          { "file": "sport", "alt": "Модуль спорта: серия, часы активности, поднятый объём и личные рекорды.", "h": "Каждый модуль - отдельный продукт.", "p": "Спорт считает серии, недельную нагрузку и личные рекорды; та же оболочка несёт рецепты, бюджеты и цели, и ни один модуль не знает о других." }
         ],
         "scaleList": [
           "Монорепозиторий из четырёх приложений: API, веб, мобильное, админка",

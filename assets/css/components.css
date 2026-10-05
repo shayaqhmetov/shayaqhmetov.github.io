@@ -1,0 +1,420 @@
+/* Ruslan Shayakhmetov - component stylesheet.
+   Every rule reads tokens from tokens.css. Class names are the contract:
+   a static page (the GitHub Pages site) may use these classes directly,
+   without the React bundle. */
+
+/* --- shared ------------------------------------------------------- */
+
+.rs-focusable:focus-visible,
+.rs-btn:focus-visible,
+.rs-seg__btn:focus-visible,
+.rs-card:focus-visible,
+.rs-tag--link:focus-visible {
+  outline: var(--border-focus) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* --- Button ------------------------------------------------------- */
+
+.rs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-control) solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  transition: background-color 120ms linear, border-color 120ms linear, color 120ms linear;
+}
+
+.rs-btn--primary {
+  background: var(--signal);
+  color: var(--ink-inverse);
+  border-color: var(--signal);
+}
+.rs-btn--primary:hover {
+  background: var(--signal-strong);
+  border-color: var(--signal-strong);
+}
+
+.rs-btn--secondary {
+  color: var(--ink-primary);
+  border-color: var(--stroke-strong);
+}
+.rs-btn--secondary:hover {
+  background: var(--surface-hover);
+}
+
+.rs-btn--ghost {
+  color: var(--ink-secondary);
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+.rs-btn--ghost:hover {
+  background: var(--surface-hover);
+  color: var(--ink-primary);
+}
+
+.rs-btn--sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: 14px;
+}
+
+.rs-btn__arrow {
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+/* --- Tag ---------------------------------------------------------- */
+
+.rs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px var(--space-2);
+  border: var(--border-hairline) solid var(--stroke-hairline);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--ink-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.rs-tag--accent {
+  border-color: var(--signal);
+  color: var(--signal);
+  background: var(--surface-signal);
+}
+
+.rs-tag--link {
+  text-decoration: none;
+}
+.rs-tag--link:hover {
+  background: var(--surface-hover);
+  color: var(--ink-primary);
+}
+
+.rs-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* --- Stat --------------------------------------------------------- */
+
+.rs-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: var(--border-hairline) solid var(--stroke-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.rs-stat__value {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+}
+
+.rs-stat--measured .rs-stat__value {
+  color: var(--aqua);
+}
+
+.rs-stat__label {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--ink-secondary);
+}
+
+.rs-stat__note {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+}
+
+.rs-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+/* --- SectionHead -------------------------------------------------- */
+
+.rs-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.rs-section-head__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.rs-section-head__title {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+  margin: 0;
+}
+
+.rs-section-head__rule {
+  width: 40px;
+  height: var(--border-marker);
+  background: var(--signal);
+}
+
+.rs-section-head__lede {
+  max-width: var(--layout-prose);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+/* --- ProjectCard -------------------------------------------------- */
+
+.rs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: var(--border-hairline) solid var(--stroke-hairline);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: border-color 120ms linear;
+}
+
+a.rs-card:hover {
+  border-color: var(--stroke-strong);
+}
+
+.rs-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.rs-card__title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  margin: 0;
+}
+
+.rs-card__role {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.rs-card__lede {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+.rs-card__figures {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  padding-top: var(--space-2);
+  border-top: var(--border-hairline) solid var(--stroke-hairline);
+}
+
+.rs-card__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rs-card__figure-value {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--aqua);
+}
+
+.rs-card__figure-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink-muted);
+}
+
+/* --- TimelineEntry ------------------------------------------------ */
+
+.rs-entry {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  border-top: var(--border-hairline) solid var(--stroke-hairline);
+}
+
+.rs-entry__period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+}
+
+.rs-entry__title {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  margin: 0;
+}
+
+.rs-entry__org {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--signal);
+}
+
+.rs-entry__context {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+  margin: var(--space-2) 0 0;
+  max-width: var(--layout-prose);
+}
+
+.rs-entry__points {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: var(--layout-prose);
+}
+
+.rs-entry__points li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--ink-secondary);
+}
+
+.rs-entry__points li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--stroke-strong);
+}
+
+@media (max-width: 640px) {
+  .rs-entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+/* --- SegmentedToggle ---------------------------------------------- */
+
+.rs-seg {
+  display: inline-flex;
+  padding: 2px;
+  border: var(--border-control) solid var(--stroke-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+}
+
+.rs-seg__btn {
+  padding: var(--space-1) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rs-seg__btn:hover {
+  color: var(--ink-primary);
+}
+
+.rs-seg__btn[aria-pressed="true"],
+.rs-seg__btn[aria-selected="true"] {
+  background: var(--signal);
+  color: var(--ink-inverse);
+}
+
+/* --- Note --------------------------------------------------------- */
+
+.rs-note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-signal);
+  border: var(--border-hairline) solid var(--signal);
+  border-radius: var(--radius-lg);
+  max-width: var(--layout-prose);
+}
+
+.rs-note__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.rs-note__body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--ink-primary);
+  margin: 0;
+}
